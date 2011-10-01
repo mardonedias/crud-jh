@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/06/2011 14:08:29 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="aminfoloc" name="br.com.aminfoloc.model.Filme" table="Filme">
+    <id name="idFilme" type="java.lang.Integer">
+      <column name="id_filme"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="br.com.aminfoloc.model.Genero" fetch="select" name="genero">
+      <column name="id_genero"/>
+    </many-to-one>
+    <property name="titulo" type="string">
+      <column length="45" name="titulo"/>
+    </property>
+    <property name="locado" type="java.lang.Boolean">
+      <column name="locado"/>
+    </property>
+    <property name="tituloOriginal" type="string">
+      <column length="45" name="titulo_original"/>
+    </property>
+    <set inverse="true" name="locacaos">
+      <key>
+        <column name="id_filme"/>
+      </key>
+      <one-to-many class="br.com.aminfoloc.model.Locacao"/>
+    </set>
+  </class>
+</hibernate-mapping>

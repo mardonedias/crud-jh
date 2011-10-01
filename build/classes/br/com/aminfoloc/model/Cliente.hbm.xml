@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/06/2011 14:08:29 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="aminfoloc" name="br.com.aminfoloc.model.Cliente" table="Cliente">
+    <id name="idCliente" type="java.lang.Integer">
+      <column name="id_cliente"/>
+      <generator class="identity"/>
+    </id>
+    <property name="nome" type="string">
+      <column length="60" name="nome"/>
+    </property>
+    <property name="bairro" type="string">
+      <column length="20" name="bairro"/>
+    </property>
+    <property name="telefone" type="string">
+      <column length="20" name="telefone"/>
+    </property>
+    <property name="endereco" type="string">
+      <column length="60" name="endereco"/>
+    </property>
+    <property name="cidade" type="string">
+      <column length="30" name="cidade"/>
+    </property>
+    <property name="celular" type="string">
+      <column length="20" name="celular"/>
+    </property>
+    <property name="email" type="string">
+      <column length="60" name="email"/>
+    </property>
+    <property name="ativo" type="java.lang.Byte">
+      <column name="ativo"/>
+    </property>
+    <set inverse="true" name="locacaos">
+      <key>
+        <column name="id_cliente"/>
+      </key>
+      <one-to-many class="br.com.aminfoloc.model.Locacao"/>
+    </set>
+  </class>
+</hibernate-mapping>
